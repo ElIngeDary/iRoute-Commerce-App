@@ -1,0 +1,41 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; border-radius: 12px;">
+    <div class="text-center mb-4">
+      <i class="bi bi-shield-lock-fill text-primary display-4"></i>
+      <h3 class="fw-bold mt-2">iRoute Solutions</h3>
+      <p class="text-muted small">Módulo de Integración de Comercios</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label fw-bold">Usuario</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          [(ngModel)]="username" 
+          name="username" 
+          placeholder="admin" 
+          required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Contraseña</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          [(ngModel)]="password" 
+          name="password" 
+          placeholder="123456" 
+          required>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger py-2 small mb-3">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 fw-bold py-2">
+        Iniciar Sesión
+      </button>
+    </form>
+  </div>
+</div>

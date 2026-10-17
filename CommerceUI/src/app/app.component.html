@@ -1,0 +1,45 @@
+<nav *ngIf="authService.isAuthenticated()" class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" routerLink="/upload">
+      <i class="bi bi-diagram-3-fill text-primary"></i>
+      iRoute Solutions
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/upload" routerLinkActive="active">
+            <i class="bi bi-file-earmark-arrow-up me-1"></i> Carga CSV
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/process" routerLinkActive="active">
+            <i class="bi bi-gear-wide-connected me-1"></i> Procesamiento
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/quarantine" routerLinkActive="active">
+            <i class="bi bi-exclamation-triangle-fill me-1"></i> Cuarentena
+          </a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-light small">
+          <i class="bi bi-person-circle me-1"></i> {{ authService.getUserName() }}
+        </span>
+        <button class="btn btn-outline-danger btn-sm fw-bold" (click)="onLogout()">
+          <i class="bi bi-box-arrow-right me-1"></i> Salir
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4">
+  <router-outlet></router-outlet>
+</div>

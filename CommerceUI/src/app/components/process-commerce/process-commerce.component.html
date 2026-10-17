@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card shadow-sm border-0 rounded-3">
+      <div class="card-header bg-dark text-white py-3">
+        <h5 class="card-title mb-0 fw-bold">
+          <i class="bi bi-cpu me-2"></i> Procesamiento y Filtrado de Comercios
+        </h5>
+      </div>
+      <div class="card-body p-4">
+        <p class="text-muted">
+          Ingrese la fecha de proceso para enviar los comercios no válidos o duplicados a la tabla de cuarentena.
+        </p>
+
+        <div class="mb-4">
+          <label class="form-label fw-bold">Fecha de Proceso</label>
+          <input 
+            type="date" 
+            class="form-control form-control-lg" 
+            [(ngModel)]="processDate">
+        </div>
+
+        <div *ngIf="successMessage" class="alert alert-info d-flex align-items-center">
+          <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+          <div>{{ successMessage }}</div>
+        </div>
+
+        <div *ngIf="errorMessage" class="alert alert-danger d-flex align-items-center">
+          <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
+          <div>{{ errorMessage }}</div>
+        </div>
+
+        <button 
+          class="btn btn-dark btn-lg w-100 fw-bold" 
+          [disabled]="!processDate || loading" 
+          (click)="onProcess()">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+          {{ loading ? 'Ejecutando procedimiento almacenado...' : 'Iniciar Procesamiento' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
