@@ -13,7 +13,7 @@ export class CommerceService {
   constructor(private http: HttpClient) { }
 
   /**
-   * Envía un archivo CSV mediante multipart/form-data al backend
+   * Envía un archivo CSV al backend
    */
   uploadCsv(file: File): Observable<UploadResponseDto> {
     const formData = new FormData();
